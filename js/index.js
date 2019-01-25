@@ -365,3 +365,4 @@ if(donateButton) {
     donateImg.src = donateImg.dataset.src
 }
 
+$('.post-content').viewer();
