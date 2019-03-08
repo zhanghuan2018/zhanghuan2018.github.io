@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        js jquery 获取元素(父节点,子节点,兄弟节点),元素筛选 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-js-获取元素-父节点-子节点-兄弟节点"><span class="toc-text">一,js 获取元素(父节点,子节点,兄弟节点)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-jquery-获取元素-父节点-子节点-兄弟节点"><span class="toc-text">二,jquery 获取元素(父节点,子节点,兄弟节点)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-元素筛选"><span class="toc-text">三,元素筛选</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#parent-，parents-，closest-这些都能帮你实现查找父元素或节点"><span class="toc-text">parent()，parents()，closest()这些都能帮你实现查找父元素或节点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#parent-expr-parent"><span class="toc-text">parent([expr])  :parent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parents-expr"><span class="toc-text">parents([expr])</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#closest-expr"><span class="toc-text">closest([expr])</span></a></li></ol></li>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        js jquery 获取元素(父节点,子节点,兄弟节点),元素筛选
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-03-08 15:31:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#jquery" title="jquery">jquery</a>
+            <span>/</span>
+          
+            <a class="tag" href="/tags/#js" title="js">js</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h3 id="一-js-获取元素-父节点-子节点-兄弟节点"><a href="#一-js-获取元素-父节点-子节点-兄弟节点" class="headerlink" title="一,js 获取元素(父节点,子节点,兄弟节点)"></a>一,js 获取元素(父节点,子节点,兄弟节点)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</span><br><span class="line"><span class="keyword">var</span> parent = test.parentNode; <span class="comment">// 父节点</span></span><br><span class="line"><span class="keyword">var</span> chils = test.childNodes; <span class="comment">// 全部子节点</span></span><br><span class="line"><span class="keyword">var</span> first = test.firstChild; <span class="comment">// 第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> last = test.lastChile; <span class="comment">// 最后一个子节点　</span></span><br><span class="line"><span class="keyword">var</span> previous = test.previousSibling; <span class="comment">// 上一个兄弟节点</span></span><br><span class="line"><span class="keyword">var</span> next = test.nextSibling; <span class="comment">// 下一个兄弟节点</span></span><br></pre></td></tr></table></figure>
+<h3 id="二-jquery-获取元素-父节点-子节点-兄弟节点"><a href="#二-jquery-获取元素-父节点-子节点-兄弟节点" class="headerlink" title="二,jquery 获取元素(父节点,子节点,兄弟节点)"></a>二,jquery 获取元素(父节点,子节点,兄弟节点)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#test1"</span>).parent(); <span class="comment">// 父节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).parents(); <span class="comment">// 全部父节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).parents(<span class="string">".mui-content"</span>);</span><br><span class="line">$(<span class="string">"#test"</span>).children(); <span class="comment">// 全部子节点</span></span><br><span class="line">$(<span class="string">"#test"</span>).children(<span class="string">"#test1"</span>);</span><br><span class="line">$(<span class="string">"#test"</span>).contents(); <span class="comment">// 返回#test里面的所有内容，包括节点和文本</span></span><br><span class="line">$(<span class="string">"#test"</span>).contents(<span class="string">"#test1"</span>);</span><br><span class="line">$(<span class="string">"#test1"</span>).prev();  <span class="comment">// 上一个兄弟节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).prevAll(); <span class="comment">// 之前所有兄弟节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).next(); <span class="comment">// 下一个兄弟节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).nextAll(); <span class="comment">// 之后所有兄弟节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).siblings(); <span class="comment">// 所有兄弟节点</span></span><br><span class="line">$(<span class="string">"#test1"</span>).siblings(<span class="string">"#test2"</span>);</span><br><span class="line">$(<span class="string">"#test"</span>).find(<span class="string">"#test1"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(t).siblings(<span class="string">":first"</span>).html();<span class="comment">//第一个兄弟</span></span><br><span class="line">$(t).siblings(<span class="string">":last"</span>).html();<span class="comment">//最后一个兄弟</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj=&#123;&#125;;</span><br><span class="line">obj.class_one=$(<span class="keyword">this</span>).find(<span class="string">"select:first"</span>).val();</span><br><span class="line">obj.class_two=$(<span class="keyword">this</span>).find(<span class="string">"select:last"</span>).val();</span><br></pre></td></tr></table></figure>
+<h3 id="三-元素筛选"><a href="#三-元素筛选" class="headerlink" title="三,元素筛选"></a>三,元素筛选</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下方法都返回一个新的jQuery对象，他们包含筛选到的元素</span></span><br><span class="line">$(<span class="string">"ul li"</span>).eq(<span class="number">1</span>); <span class="comment">// 选取ul li中匹配的索引顺序为1的元素(也就是第2个li元素)</span></span><br><span class="line">$(<span class="string">"ul li"</span>).first(); <span class="comment">// 选取ul li中匹配的第一个元素</span></span><br><span class="line">$(<span class="string">"ul li"</span>).last(); <span class="comment">// 选取ul li中匹配的最后一个元素</span></span><br><span class="line">$(<span class="string">"ul li"</span>).slice(<span class="number">1</span>, <span class="number">4</span>); <span class="comment">// 选取第2 ~ 4个元素</span></span><br><span class="line">$(<span class="string">"ul li"</span>).filter(<span class="string">":even"</span>); <span class="comment">// 选取ul li中所有奇数顺序的元素</span></span><br></pre></td></tr></table></figure>
+<h2 id="parent-，parents-，closest-这些都能帮你实现查找父元素或节点"><a href="#parent-，parents-，closest-这些都能帮你实现查找父元素或节点" class="headerlink" title="parent()，parents()，closest()这些都能帮你实现查找父元素或节点"></a>parent()，parents()，closest()这些都能帮你实现查找父元素或节点</h2><h4 id="parent-expr-parent"><a href="#parent-expr-parent" class="headerlink" title="parent([expr])  :parent"></a>parent([expr])  :parent</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得一个包含着所有匹配元素的唯一父元素的元素集合。</span></span><br><span class="line">$(<span class="string">'#item1'</span>).parent().parent(<span class="string">'.parent1'</span>);</span><br><span class="line"><span class="comment">//匹配含有子元素或者文本的元素</span></span><br><span class="line">$(<span class="string">'li:parent'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="parents-expr"><a href="#parents-expr" class="headerlink" title="parents([expr])"></a>parents([expr])</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选。</span></span><br><span class="line">$(<span class="string">'#items'</span>).parents(<span class="string">'.parent1'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="closest-expr"><a href="#closest-expr" class="headerlink" title="closest([expr])"></a>closest([expr])</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//closest会首先检查当前元素是否匹配，如果匹配则直接返回元素本身。如果不匹配则向上查找父元素，一层一层往上，直到找到匹配选择器的元素。如果什么都没找到则返回一个空的jQuery对象。</span></span><br><span class="line"><span class="comment">//closest和parents的主要区别是：1，前者从当前元素开始匹配寻找，后者从父元素开始匹配寻找；2，前者逐级向上查找，直到发现匹配的元素后 就停止了，后者一直向上查找直到根元素，然后把这些元素放进一个临时集合中，再用给定的选择器表达式去过滤；3，前者返回0或1个元素，后者可能包含0 个，1个，或者多个元素。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//closest对于处理事件委派非常有用。</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'#items1'</span>).closest(<span class="string">'.parent1'</span>);</span><br></pre></td></tr></table></figure>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

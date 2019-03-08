@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        DropZone（文件上传插件） - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DropZone-例子"><span class="toc-text">DropZone 例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-html文件"><span class="toc-text">1. html文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-引入css文件"><span class="toc-text">2.引入css文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-js文件"><span class="toc-text">3.js文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html文件demo"><span class="toc-text">html文件demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整示例："><span class="toc-text">完整示例：</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        DropZone（文件上传插件）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-03-08 14:49:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#js" title="js">js</a>
+            <span>/</span>
+          
+            <a class="tag" href="/tags/#DropzoneJS" title="DropzoneJS">DropzoneJS</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h2 id="DropZone-例子"><a href="#DropZone-例子" class="headerlink" title="DropZone 例子"></a>DropZone 例子</h2><h3 id="1-html文件"><a href="#1-html文件" class="headerlink" title="1. html文件"></a>1. html文件</h3><p>dropzone的原理是模拟表单来上传文件，html中的元素有多重形式。</p>
+<ul>
+<li><p>可以建立一个form表单：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"dropz"</span> <span class="attr">action</span>=<span class="string">"/upload.php"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以不用表单的形式，直接用一个div</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dropz"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-引入css文件"><a href="#2-引入css文件" class="headerlink" title="2.引入css文件"></a>2.引入css文件</h3><p>引入dropzone.min.css之后会有更漂亮的外观；</p>
+<ul>
+<li>然后可以自己添加些外观样式覆盖它，如：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">        <span class="selector-id">#filedropzone</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">900px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">220px</span>;</span><br><span class="line">            <span class="attribute">margin-left</span>: <span class="number">200px</span>;</span><br><span class="line">            <span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">3px</span> dashed green;</span><br><span class="line">            <span class="attribute">border-radius</span>: <span class="number">2%</span>;</span><br><span class="line">            <span class="attribute">box-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">5px</span> <span class="number">#888888</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-js文件"><a href="#3-js文件" class="headerlink" title="3.js文件"></a>3.js文件</h3><p>必须配置js才能上传</p>
+<ul>
+<li><p>1.如果没有引入jquery:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var myDropzone = new Dropzone(&quot;div#mydropzone&quot;, &#123;url: &quot;/upload&quot;&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2.如果引入了jquery:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#dropz&quot;).dropzone(&#123;url: &quot;/upload&quot;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>常用的配置项：</p>
+<ul>
+<li>url : 必要参数，文件的上传地址；</li>
+<li>maxFiles : 默认为null，可以指定为一个数值，限制最多文件数量。</li>
+<li>maxFilesize : 限制文件的大小，单位是MB；</li>
+<li>acceptedFiles : 允许上传的文件类型，文件扩展名以逗号隔开，格式见实例；</li>
+<li>autoProcessQueue : 默认为true，即拖入文件立即自动上传；如果需要在上传之前有一些选择的操作，然后手动上传，可以把该属性设置为false，然后手动点击按钮上传；</li>
+<li>paramName : 相当于input元素的name属性，默认为file。<br>提示文本：</li>
+<li>dictDefaultMessage : 没有任何文件被添加时的提示文本；</li>
+<li>dictFallbackMessage：Fallback 情况下的提示文本。</li>
+<li>dictInvalidInputType：文件类型被拒绝时的提示文本。</li>
+<li>dictFileTooBig：文件大小过大时的提示文本。</li>
+<li>dictCancelUpload：取消上传链接的文本。</li>
+<li>dictCancelUploadConfirmation：取消上传确认信息的文本。</li>
+<li>dictRemoveFile：移除文件链接的文本。</li>
+<li>dictMaxFilesExceeded：超过最大文件数量的提示文本。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//添加监听事件：</span><br><span class="line">$(&quot;#dropz&quot;).dropzone(&#123;</span><br><span class="line">    init: function() &#123;</span><br><span class="line">        this.on(&quot;addedfile&quot;, function(file) &#123;</span><br><span class="line">            // actions...</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">　</span><br><span class="line">//没有添加jquery时：</span><br><span class="line">dropz.on(&quot;addedfile&quot;, function(file) &#123;</span><br><span class="line">    // actions...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>常用事件：</p>
+<ul>
+<li>addedfile : 添加文件是发生</li>
+<li>removefile : 手动从服务器删除文件时发生</li>
+<li>success : 上传成功后发生</li>
+<li>complete：当文件上传成功或失败之后发生。</li>
+<li>canceled：当文件在上传时被取消的时候发生。</li>
+<li>maxfilesreached：当文件数量达到最大时发生。</li>
+<li>maxfilesexceeded：当文件数量超过限制时发生。</li>
+<li>totaluploadprogress : 文件上传中的返回值，第一个参数为总上传进度(0到100)，第二个为总字节数，第三个为总上传字节数，利用这几个参数，可计算出上传速度，和剩余上传时间；</li>
+</ul>
+<h3 id="html文件demo"><a href="#html文件demo" class="headerlink" title="html文件demo"></a>html文件demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/plugins/dropzone/dropzone.css&quot;&gt;</span><br><span class="line">&lt;div id=&quot;upload_div&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;请上传您的代码（如包含文件夹需要打包后再上传）&lt;/p&gt;</span><br><span class="line">        &lt;form id=&quot;filedropzone&quot; method=&quot;post&quot; action=&quot;/upload&quot; class=&quot;dropzone dz-clickable&quot; &gt;</span><br><span class="line">            &lt;div class=&quot;dz-default dz-message&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;dz-icon icon-wrap icon-circle icon-wrap-md&quot;&gt;</span><br><span class="line">                    &lt;i class=&quot;fa fa-cloud-upload fa-3x&quot;&gt;&lt;/i&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;p class=&quot;dz-text&quot;&gt;把打包后的代码拖放到这里&lt;/p&gt;</span><br><span class="line">                    &lt;p class=&quot;text-muted&quot;&gt;最多可上传2张照片&lt;/p&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script src=&quot;/static/plugins/dropzone/dropzone.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(document).ready(function () &#123;</span><br><span class="line">         Dropzone.options.filedropzone = &#123;</span><br><span class="line">          url:&quot;&#123;&#123; request.path &#125;&#125;&quot;,</span><br><span class="line">          paramName: &quot;file&quot;, // The name that will be used to transfer the file</span><br><span class="line">          maxFilesize: 1, // MB,</span><br><span class="line">          addRemoveLinks:true,</span><br><span class="line">          maxFiles:5,</span><br><span class="line">          uploadMultiple:true,</span><br><span class="line">          accept: function(file, done) &#123;</span><br><span class="line">            if (! file.name.endsWith(&quot;.zip&quot;) ) &#123;</span><br><span class="line">              alert(&quot;只能上传.zip格式的压缩包&quot;)</span><br><span class="line">                done(&quot;文件为上传&quot;)</span><br><span class="line">                myDropzone.removeFile(file);</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123; done(); &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      Dropzone.autoDiscover = false;</span><br><span class="line">      myDropzone = new Dropzone(&quot;#filedropzone&quot;);</span><br><span class="line">      myDropzone.on(&quot;addedfile&quot;, function(file) &#123;</span><br><span class="line">        /* Maybe display some more file information on your page */</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      myDropzone.on(&quot;success&quot;, function(file,response) &#123;</span><br><span class="line">          /* Maybe display some more file information on your page */</span><br><span class="line">          console.log(&apos;filex upload done...&apos;, response);</span><br><span class="line">      &#125; )</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>　　</p>
+<h3 id="完整示例："><a href="#完整示例：" class="headerlink" title="完整示例："></a>完整示例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;#dropz&quot;).dropzone(&#123;           </span><br><span class="line">    url: &quot;/files/uploading&quot;,</span><br><span class="line">    maxFiles: 1,</span><br><span class="line">    maxFilesize: 1024,</span><br><span class="line">    acceptedFiles: &quot;.jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.avi,.pdf,.mp3,.zip&quot;,</span><br><span class="line">    autoProcessQueue: false,</span><br><span class="line">    paramName: &quot;file&quot;,</span><br><span class="line">    dictDefaultMessage: &quot;拖入需要上传的文件&quot;,</span><br><span class="line">    init: function () &#123;</span><br><span class="line">        var myDropzone = this, submitButton = document.querySelector(&quot;#qr&quot;),</span><br><span class="line">        cancelButton = document.querySelector(&quot;#cancel&quot;);</span><br><span class="line">        myDropzone.on(&apos;addedfile&apos;, function (file) &#123;</span><br><span class="line">            //添加上传文件的过程，可再次弹出弹框，添加上传文件的信息</span><br><span class="line">        &#125;);</span><br><span class="line">        myDropzone.on(&apos;sending&apos;, function (data, xhr, formData) &#123;</span><br><span class="line">            //向后台发送该文件的参数</span><br><span class="line">            formData.append(&apos;watermark&apos;, jQuery(&apos;#info&apos;).val());</span><br><span class="line">        &#125;);</span><br><span class="line">        myDropzone.on(&apos;success&apos;, function (files, response) &#123;</span><br><span class="line">            //文件上传成功之后的操作</span><br><span class="line">        &#125;);</span><br><span class="line">        myDropzone.on(&apos;error&apos;, function (files, response) &#123;</span><br><span class="line">            //文件上传失败后的操作</span><br><span class="line">        &#125;);</span><br><span class="line">        myDropzone.on(&apos;totaluploadprogress&apos;, function (progress, byte, bytes) &#123;</span><br><span class="line">            //progress为进度百分比</span><br><span class="line">            $(&quot;#pro&quot;).text(&quot;上传进度：&quot; + parseInt(progress) + &quot;%&quot;);</span><br><span class="line">            //计算上传速度和剩余时间</span><br><span class="line">            var mm = 0;</span><br><span class="line">            var byte = 0;</span><br><span class="line">            var tt = setInterval(function () &#123;</span><br><span class="line">                mm++;</span><br><span class="line">                var byte2 = bytes;</span><br><span class="line">                var remain;</span><br><span class="line">                var speed;</span><br><span class="line">                var byteKb = byte/1024;</span><br><span class="line">                var bytesKb = bytes/1024;</span><br><span class="line">                var byteMb = byte/1024/1024;</span><br><span class="line">                var bytesMb = bytes/1024/1024;</span><br><span class="line">                if(byteKb &lt;= 1024)&#123;</span><br><span class="line">                    speed = (parseFloat(byte2 - byte)/(1024)/mm).toFixed(2) + &quot; KB/s&quot;;</span><br><span class="line">                    remain = (byteKb - bytesKb)/parseFloat(speed);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    speed = (parseFloat(byte2 - byte)/(1024*1024)/mm).toFixed(2) + &quot; MB/s&quot;;</span><br><span class="line">                    remain = (byteMb - bytesMb)/parseFloat(speed);</span><br><span class="line">                &#125;</span><br><span class="line">                $(&quot;#dropz #speed&quot;).text(&quot;上传速率：&quot; + speed);</span><br><span class="line">                $(&quot;#dropz #time&quot;).text(&quot;剩余时间&quot;+arrive_timer_format(parseInt(remain)));</span><br><span class="line">                if(bytes &gt;= byte)&#123;</span><br><span class="line">                    clearInterval(tt);</span><br><span class="line">                    if(byteKb &lt;= 1024)&#123;</span><br><span class="line">                        $(&quot;#dropz #speed&quot;).text(&quot;上传速率：0 KB/s&quot;);</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                        $(&quot;#dropz #speed&quot;).text(&quot;上传速率：0 MB/s&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    $(&quot;#dropz #time&quot;).text(&quot;剩余时间：0:00:00&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,1000);</span><br><span class="line">        &#125;);</span><br><span class="line">        submitButton.addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">            //点击上传文件</span><br><span class="line">            myDropzone.processQueue();</span><br><span class="line">        &#125;);</span><br><span class="line">        cancelButton.addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">            //取消上传</span><br><span class="line">            myDropzone.removeAllFiles();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">//剩余时间格式转换：</span><br><span class="line">function arrive_timer_format(s) &#123;</span><br><span class="line">    var t;</span><br><span class="line">    if(s &gt; -1)&#123;</span><br><span class="line">        var hour = Math.floor(s/3600);</span><br><span class="line">        var min = Math.floor(s/60) % 60;</span><br><span class="line">        var sec = s % 60;</span><br><span class="line">        var day = parseInt(hour / 24);</span><br><span class="line">        if (day &gt; 0) &#123;</span><br><span class="line">            hour = hour - 24 * day;</span><br><span class="line">            t = day + &quot;day &quot; + hour + &quot;:&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        else t = hour + &quot;:&quot;;</span><br><span class="line">        if(min &lt; 10)&#123;t += &quot;0&quot;;&#125;</span><br><span class="line">        t += min + &quot;:&quot;;</span><br><span class="line">        if(sec &lt; 10)&#123;t += &quot;0&quot;;&#125;</span><br><span class="line">        t += sec;</span><br><span class="line">    &#125;</span><br><span class="line">    return t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#urls.py</span><br><span class="line">from app01 import views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</span><br><span class="line">    url(r&apos;^test/&apos;, views.dropzoneTest),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">#views.py</span><br><span class="line">from django.shortcuts import render</span><br><span class="line"></span><br><span class="line">def dropzoneTest(request):</span><br><span class="line">    if request.is_ajax():</span><br><span class="line">        file = request.FILES.get(&apos;file&apos;)</span><br><span class="line">        with open(&apos;file.jpg&apos;,&apos;wb&apos;) as f:</span><br><span class="line">            for line in file:</span><br><span class="line">                f.write(line)</span><br><span class="line">    return render(request,&apos;dropzoneTest.html&apos;)</span><br><span class="line"></span><br><span class="line">#dropzoneDemo.html</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &#123;% load static %&#125;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;&#123;% static &apos;dropzone.css&apos; %&#125;&quot;&gt;</span><br><span class="line">    &lt;script src=&quot;&#123;% static &apos;jquery-3.2.1.min.js&apos; %&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;&#123;% static &apos;dropzone.js&apos; %&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;请上传身份照正反面照片&lt;/p&gt;</span><br><span class="line">        &lt;form id=&quot;filedropzone&quot; method=&quot;post&quot; action=&quot;&#123;&#123; request.path &#125;&#125;&quot; class=&quot;dropzone dz-clickable&quot; &gt;&#123;% csrf_token %&#125;</span><br><span class="line">            &lt;div class=&quot;dz-default dz-message&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;dz-icon icon-wrap icon-circle icon-wrap-md&quot;&gt;</span><br><span class="line">                    &lt;i class=&quot;fa fa-cloud-upload fa-3x&quot;&gt;&lt;/i&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;p class=&quot;dz-text&quot;&gt;把证件信息拖放到这里&lt;/p&gt;</span><br><span class="line">                    &lt;p class=&quot;text-muted&quot;&gt;最多可上传2张照片&lt;/p&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line"></span><br><span class="line">&lt;!---------------------------------------------------------------&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    $(&quot;#filedropzone&quot;).dropzone(&#123;</span><br><span class="line">        url: &quot;&#123;&#123; request.path &#125;&#125;&quot;,</span><br><span class="line">        maxFiles: 5,</span><br><span class="line">        maxFilesize: 1024,</span><br><span class="line">        acceptedFiles: &quot;.jpg,.jpeg,.doc,.docx,.ppt,.pptx,.txt,.avi,.pdf,.mp3,.zip&quot;,</span><br><span class="line">        autoProcessQueue: false,</span><br><span class="line">        paramName: &quot;file&quot;,</span><br><span class="line">        dictDefaultMessage: &quot;拖入需要上传的文件&quot;,</span><br><span class="line">        init: function () &#123;</span><br><span class="line">            var myDropzone = this, submitButton = document.querySelector(&quot;#qr&quot;),</span><br><span class="line">                    cancelButton = document.querySelector(&quot;#cancel&quot;);</span><br><span class="line">            myDropzone.on(&apos;addedfile&apos;, function (file) &#123;</span><br><span class="line">                //添加上传文件的过程，可再次弹出弹框，添加上传文件的信息</span><br><span class="line">            &#125;);</span><br><span class="line">            myDropzone.on(&apos;sending&apos;, function (data, xhr, formData) &#123;</span><br><span class="line">                //向后台发送该文件的参数</span><br><span class="line">                formData.append(&apos;watermark&apos;, jQuery(&apos;#info&apos;).val());</span><br><span class="line">            &#125;);</span><br><span class="line">            myDropzone.on(&apos;success&apos;, function (files, response) &#123;</span><br><span class="line">                //文件上传成功之后的操作</span><br><span class="line">            &#125;);</span><br><span class="line">            myDropzone.on(&apos;error&apos;, function (files, response) &#123;</span><br><span class="line">                //文件上传失败后的操作</span><br><span class="line">            &#125;);</span><br><span class="line">            myDropzone.on(&apos;totaluploadprogress&apos;, function (progress, byte, bytes) &#123;</span><br><span class="line">                //progress为进度百分比</span><br><span class="line">                $(&quot;#pro&quot;).text(&quot;上传进度：&quot; + parseInt(progress) + &quot;%&quot;);</span><br><span class="line">                //计算上传速度和剩余时间</span><br><span class="line">                var mm = 0;</span><br><span class="line">                var byte = 0;</span><br><span class="line">                var tt = setInterval(function () &#123;</span><br><span class="line">                    mm++;</span><br><span class="line">                    var byte2 = bytes;</span><br><span class="line">                    var remain;</span><br><span class="line">                    var speed;</span><br><span class="line">                    var byteKb = byte / 1024;</span><br><span class="line">                    var bytesKb = bytes / 1024;</span><br><span class="line">                    var byteMb = byte / 1024 / 1024;</span><br><span class="line">                    var bytesMb = bytes / 1024 / 1024;</span><br><span class="line">                    if (byteKb &lt;= 1024) &#123;</span><br><span class="line">                        speed = (parseFloat(byte2 - byte) / (1024) / mm).toFixed(2) + &quot; KB/s&quot;;</span><br><span class="line">                        remain = (byteKb - bytesKb) / parseFloat(speed);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        speed = (parseFloat(byte2 - byte) / (1024 * 1024) / mm).toFixed(2) + &quot; MB/s&quot;;</span><br><span class="line">                        remain = (byteMb - bytesMb) / parseFloat(speed);</span><br><span class="line">                    &#125;</span><br><span class="line">                    $(&quot;#dropz #speed&quot;).text(&quot;上传速率：&quot; + speed);</span><br><span class="line">                    $(&quot;#dropz #time&quot;).text(&quot;剩余时间&quot; + arrive_timer_format(parseInt(remain)));</span><br><span class="line">                    if (bytes &gt;= byte) &#123;</span><br><span class="line">                        clearInterval(tt);</span><br><span class="line">                        if (byteKb &lt;= 1024) &#123;</span><br><span class="line">                            $(&quot;#dropz #speed&quot;).text(&quot;上传速率：0 KB/s&quot;);</span><br><span class="line">                        &#125; else &#123;</span><br><span class="line">                            $(&quot;#dropz #speed&quot;).text(&quot;上传速率：0 MB/s&quot;);</span><br><span class="line">                        &#125;</span><br><span class="line">                        $(&quot;#dropz #time&quot;).text(&quot;剩余时间：0:00:00&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;, 1000);</span><br><span class="line">            &#125;);</span><br><span class="line">            submitButton.addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">                //点击上传文件</span><br><span class="line">                myDropzone.processQueue();</span><br><span class="line">            &#125;);</span><br><span class="line">            cancelButton.addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">                //取消上传</span><br><span class="line">                myDropzone.removeAllFiles();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">//剩余时间格式转换：</span><br><span class="line">    function arrive_timer_format(s) &#123;</span><br><span class="line">        var t;</span><br><span class="line">        if (s &gt; -1) &#123;</span><br><span class="line">            var hour = Math.floor(s / 3600);</span><br><span class="line">            var min = Math.floor(s / 60) % 60;</span><br><span class="line">            var sec = s % 60;</span><br><span class="line">            var day = parseInt(hour / 24);</span><br><span class="line">            if (day &gt; 0) &#123;</span><br><span class="line">                hour = hour - 24 * day;</span><br><span class="line">                t = day + &quot;day &quot; + hour + &quot;:&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else t = hour + &quot;:&quot;;</span><br><span class="line">            if (min &lt; 10) &#123;</span><br><span class="line">                t += &quot;0&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            t += min + &quot;:&quot;;</span><br><span class="line">            if (sec &lt; 10) &#123;</span><br><span class="line">                t += &quot;0&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            t += sec;</span><br><span class="line">        &#125;</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
