@@ -11,7 +11,7 @@
 
     <title>
         
-        zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        window下启动程序 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
         
     </title>
 
@@ -54,7 +54,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li class="active">
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -89,6 +89,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#window下通过cmd运行命令"><span class="toc-text">window下通过cmd运行命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vbs文件实现"><span class="toc-text">vbs文件实现</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -111,67 +115,46 @@
     
     <div class="index-middle">
         <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        window下启动程序
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-04-09 15:11:30</span>
+        </span>
+
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-11</div>
-        <div class="post-info">
-            <a href="/2018/12/11/GitHub页面基础/">
-                <h3>
-                    GitHub页面基础
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#html" title="html">html</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#github" title="github">github</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#windows" title="windows">windows</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-11</div>
-        <div class="post-info">
-            <a href="/2018/12/11/创建blog/">
-                <h3>
-                    创建免费blog
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#github" title="github">github</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#blog" title="blog">blog</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <h2 id="window下通过cmd运行命令"><a href="#window下通过cmd运行命令" class="headerlink" title="window下通过cmd运行命令"></a>window下通过cmd运行命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#后台运行,关闭cmd窗口后程序退出</span></span><br><span class="line">start /b  xxx.exe</span><br><span class="line"></span><br><span class="line"><span class="comment">#隐藏窗口运行命令</span></span><br><span class="line">%windir%\system32\mshta.exe vbscript:createobject(<span class="string">"wscript.shell"</span>).run(<span class="string">"D:\\xxx.exe"</span>,0)(window.close)</span><br></pre></td></tr></table></figure>
+<h2 id="vbs文件实现"><a href="#vbs文件实现" class="headerlink" title="vbs文件实现"></a>vbs文件实现</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建一个vbs文件，内容如下，把该vbs放入php-cgi.exe的上一级目录，双击即可在后台启动php-cgi.exe。</span></span><br><span class="line"><span class="built_in">set</span> wscriptObj = CreateObject(<span class="string">"Wscript.Shell"</span>) wscriptObj.run <span class="string">"php\php-cgi -b 127.0.0.1:9000"</span>,0</span><br></pre></td></tr></table></figure>
+<p>有些程序在命令行下运行的时候，当我们关闭命令行窗口以后，程序也关闭了。<br>比如php-cgi的进程，我们在命令行下运行D:\php\php-cgi.exe -b 127.0.0.1:9000，命令行窗口一直开着，当我们关闭命令行窗口或按CTRL+C的时候，进程php-cgi也就关了。</p>
+<p>有些人通过RunHiddenConsole.exe来让php-cgi.exe在后台运行，命令如下：php\RunHiddenConsole.exe php\php-cgi.exe -b 127.0.0.1:9000 -c php\php.ini</p>
+<p>有些人用nircmd.exe。运行的命令如下：nircmd.exe exec hide ....\php\php-cgi.exe -b 127.0.0.1:9000 -c ....\php\php.ini</p>
+
+        
+        <br>
+        <div id="comment-container">
         </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
     </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/2/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -228,7 +211,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/viewer/viewer.min.js"></script>
