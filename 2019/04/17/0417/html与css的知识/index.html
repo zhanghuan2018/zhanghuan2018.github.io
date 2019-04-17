@@ -11,7 +11,7 @@
 
     <title>
         
-        zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        html与css的知识 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
         
     </title>
 
@@ -54,7 +54,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li class="active">
+            <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -89,6 +89,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#禁用-a-标签的点击事件"><span class="toc-text">禁用 a 标签的点击事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js添加的html代码绑定事件"><span class="toc-text">js添加的html代码绑定事件</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -111,90 +115,46 @@
     
     <div class="index-middle">
         <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        html与css的知识
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-04-17 11:11:30</span>
+        </span>
+
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-11</div>
-        <div class="post-info">
-            <a href="/2018/12/11/window上的todolist工具/">
-                <h3>
-                    window上的todolist工具
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#windows" title="windows">windows</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TodoList" title="TodoList">TodoList</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#html" title="html">html</a>
+            <span>/</span>
+          
+            <a class="tag" href="/tags/#css" title="css">css</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-11</div>
-        <div class="post-info">
-            <a href="/2018/12/11/GitHub页面基础/">
-                <h3>
-                    GitHub页面基础
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#html" title="html">html</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#github" title="github">github</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <h2 id="禁用-a-标签的点击事件"><a href="#禁用-a-标签的点击事件" class="headerlink" title="禁用 a 标签的点击事件"></a>禁用 a 标签的点击事件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a标签 是没有disable 属性的</span></span><br><span class="line">&lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"praise"</span>&gt;赞&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">$(".praise").attr("disabled",true);</span></span><br><span class="line"><span class="regexp">$(".praise").css("pointer-events","none");</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">$(".praise").attr("disabled",true).css("pointer-events","none");</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/加入style=”opacity: 0.2”可以实现变灰的效果</span></span><br></pre></td></tr></table></figure>
+<h2 id="js添加的html代码绑定事件"><a href="#js添加的html代码绑定事件" class="headerlink" title="js添加的html代码绑定事件"></a>js添加的html代码绑定事件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img onclick=<span class="string">"fun();"</span> /&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">"#id"</span>).find(<span class="string">'img'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+        
+        <br>
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-12-11</div>
-        <div class="post-info">
-            <a href="/2018/12/11/创建blog/">
-                <h3>
-                    创建免费blog
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#github" title="github">github</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#blog" title="blog">blog</a>
-                <span>/</span>
-                
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/2/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -251,7 +211,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/viewer/viewer.min.js"></script>
