@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        jq点击图片查看大图 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#点击显示大图"><span class="toc-text">点击显示大图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        jq点击图片查看大图
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-04-18 17:11:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#jq" title="jq">jq</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h2 id="点击显示大图"><a href="#点击显示大图" class="headerlink" title="点击显示大图"></a>点击显示大图</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;img  onclick=<span class="string">"showBigImg(this);"</span> name=<span class="string">"'+name+'"</span> src=<span class="string">"url"</span> style=<span class="string">"max-width:300px;max-height:300px;cursor:pointer;bottom:0px;position:absolute;"</span>&gt;</span><br><span class="line"><span class="comment">/* 点击 显示大图 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showBigImg</span>(<span class="params">t</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> url = $(t).attr(<span class="string">'src'</span>);</span><br><span class="line">  <span class="keyword">var</span> img_infor = <span class="string">"&lt;div &gt;&lt;img style='height: 500px' src='"</span> + url + <span class="string">"' /&gt;&lt;/div&gt;"</span>;</span><br><span class="line">  layer.open(&#123;</span><br><span class="line">      type: <span class="number">1</span>,</span><br><span class="line">      closeBtn: <span class="number">1</span>,</span><br><span class="line">      shade: <span class="number">0.5</span>,</span><br><span class="line">      title: <span class="literal">false</span>,</span><br><span class="line">      skin: <span class="string">'demo-class'</span>,</span><br><span class="line">      shadeClose: <span class="literal">true</span>,</span><br><span class="line">      area:[<span class="string">'auto'</span>,<span class="string">'auto'</span>],</span><br><span class="line">      content: img_infor</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><center><br><img onclick="showBigImg(this);" src="/post_img/20190418/1.jpg" width="90%"><br></center></p>
+<script type="text/javascript">
+/* 点击 显示大图 */
+function showBigImg(t){
+  var url = $(t).attr('src');
+  var img_infor = "<div ><img style='height: 500px' src='" + url + "' /></div>";
+  layer.open({
+      type: 1,
+      closeBtn: 1,
+      shade: 0.5,
+      title: false,
+      skin: 'demo-class',
+      shadeClose: true,
+      area:['auto','auto'],
+      content: img_infor
+  });
+}
+</script>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
