@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        工作中问题 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭按钮事件监听"><span class="toc-text">关闭按钮事件监听</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本编辑器禁用"><span class="toc-text">文本编辑器禁用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax-提交数组"><span class="toc-text">ajax 提交数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本域换行处理"><span class="toc-text">文本域换行处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式图标修改"><span class="toc-text">样式图标修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取url后缀"><span class="toc-text">获取url后缀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#layer-open-关闭回调"><span class="toc-text">layer.open 关闭回调</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        工作中问题
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-04-30 18:11:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#js" title="js">js</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h2 id="关闭按钮事件监听"><a href="#关闭按钮事件监听" class="headerlink" title="关闭按钮事件监听"></a>关闭按钮事件监听</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> index = parent.Layer.getFrameIndex(<span class="built_in">window</span>.name);</span><br><span class="line">parent.$(<span class="string">"#layui-layer"</span> + index).find(<span class="string">".layui-layer-close"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">window</span>.parent.$(<span class="string">".toolbar .btn-refresh"</span>).trigger(<span class="string">'click'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="文本编辑器禁用"><a href="#文本编辑器禁用" class="headerlink" title="文本编辑器禁用"></a>文本编辑器禁用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">'summernote'</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">"#id"</span>).summernote(<span class="string">'disable'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="ajax-提交数组"><a href="#ajax-提交数组" class="headerlink" title="ajax 提交数组"></a>ajax 提交数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Fast.api.ajax(&#123;</span><br><span class="line">  url:<span class="string">'ajax'</span>,</span><br><span class="line">  data: &#123;<span class="attr">arr_str</span>:arr.join(<span class="string">","</span>)&#125;,</span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">ret</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(ret);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="文本域换行处理"><a href="#文本域换行处理" class="headerlink" title="文本域换行处理"></a>文本域换行处理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> textarea=$(<span class="keyword">this</span>).parents(<span class="string">'.form-group'</span>).find(<span class="string">'textarea'</span>).val();</span><br><span class="line"><span class="keyword">var</span> arr = textarea.split(<span class="regexp">/[(\r\n)\r\n]+/</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//去除前后空白</span></span><br><span class="line">$.trim(str);</span><br></pre></td></tr></table></figure>
+<h2 id="样式图标修改"><a href="#样式图标修改" class="headerlink" title="样式图标修改"></a>样式图标修改</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fa-eye-slash</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">23px</span>;</span><br><span class="line">  <span class="attribute">color</span>:<span class="number">#57B99D</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fa-eye</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">23px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-reddit</span>&#123;</span><br><span class="line">  <span class="attribute">border-color</span>:<span class="built_in">rgba</span>(0,0,0,0);</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="built_in">rgba</span>(0,0,0,0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-reddit</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>:<span class="built_in">rgba</span>(0,0,0,0);</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="built_in">rgba</span>(0,0,0,0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fa-eye-slash</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"\f14a"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fa-eye</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"\f096"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取url后缀"><a href="#获取url后缀" class="headerlink" title="获取url后缀"></a>获取url后缀</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> extStart=url.lastIndexOf(<span class="string">"."</span>);</span><br><span class="line"><span class="keyword">var</span> ext=url.substring(extStart,url.length).toUpperCase();</span><br><span class="line"><span class="keyword">if</span>($.inArray(ext,[<span class="string">'.JPG'</span>,<span class="string">'.JPEG'</span>,<span class="string">'.PNG'</span>,<span class="string">'.BMP'</span>,<span class="string">'.PSD'</span>]) != <span class="number">-1</span>)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'是图片'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'不是图片'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="layer-open-关闭回调"><a href="#layer-open-关闭回调" class="headerlink" title="layer.open 关闭回调"></a>layer.open 关闭回调</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">layer.open($.extend(commonObj, &#123;</span><br><span class="line">	area : [ <span class="string">'1035px'</span>, <span class="string">'624px'</span> ],</span><br><span class="line">	content :<span class="string">'xxx.html'</span>,</span><br><span class="line">	end: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//关闭回调</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
