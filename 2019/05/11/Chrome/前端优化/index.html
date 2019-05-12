@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        前端优化 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2、开启GZip压缩"><span class="toc-text">2、开启GZip压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、服务器响应时间"><span class="toc-text">3、服务器响应时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、使用CDN"><span class="toc-text">4、使用CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、压缩CSS、JavaScript和HTML文件"><span class="toc-text">5、压缩CSS、JavaScript和HTML文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、避免重定向"><span class="toc-text">6、避免重定向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、指定字符集"><span class="toc-text">7、指定字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、避免错误请求"><span class="toc-text">8、避免错误请求</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        前端优化
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-05-11 15:11:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#前端" title="前端">前端</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <p>##1、图片优化<br>首先，你需要优化你网站上的图片，来获得丝毫加速网站的机会。从原图上移除额外的注解、不必要的空间和无用的颜色，将图片保存为JPEG格式，因为它即使占用空间小，也能保证图片的高质量。</p>
+<p>对于WordPress网站，建议使用smush.it插件来自动优化网站的图片。如果图片是PNG格式，可以使用tinypng 优化图片，提高图片质量。</p>
+<h2 id="2、开启GZip压缩"><a href="#2、开启GZip压缩" class="headerlink" title="2、开启GZip压缩"></a>2、开启GZip压缩</h2><p>GZip压缩听起来很复杂，但实际上很简单，被用于减少HTTP请求的大小来缩短响应时间。因为这允许你发送GZip压缩文件而不是HTML文件给浏览器，它将缩短页面等待时间和加载时间。对于Apache服务器，可以将下面的代码添加到.htaccess文件中来开启GZip压缩。</p>
+<h2 id="3、服务器响应时间"><a href="#3、服务器响应时间" class="headerlink" title="3、服务器响应时间"></a>3、服务器响应时间</h2><p>即使网站已经格外优化，但是除非服务器响应时间非常快，否则就不会有什么大的效果。当涉及到提高网站的速度，服务器响应时间起着重要的作用。下面是一些提高服务器响应时间的建议。</p>
+<p>有独立的服务器，而不是选择共享/托管服务器。</p>
+<p>提高Web服务器的质量。</p>
+<p>移除不必要的插件，只有那些必要的插件，才需要一直保持启用状态。</p>
+<h2 id="4、使用CDN"><a href="#4、使用CDN" class="headerlink" title="4、使用CDN"></a>4、使用CDN</h2><p>内容分发网络(CDN)是位于不同地理位置的服务器组成的网络。每个服务器都拥有所有网站的文件副本。当用户请求文件和网页时，就可以直接从就近的网站服务器获取相应资源(也可以是从负载最小的服务器)。你可以使用Amazon cloud front 或者MaxCDN为网站开启CDN加速。</p>
+<h2 id="5、压缩CSS、JavaScript和HTML文件"><a href="#5、压缩CSS、JavaScript和HTML文件" class="headerlink" title="5、压缩CSS、JavaScript和HTML文件"></a>5、压缩CSS、JavaScript和HTML文件</h2><p>通过删除所有不必要的空格和注释，从而减小文件大小，提高页面的加载速度。下面是一些优化CSS、JavaScript和HTML文件的流行工具，非常有用。</p>
+<p>CSS Minifier</p>
+<p>Avivo</p>
+<p>HTML Compressor</p>
+<h2 id="6、避免重定向"><a href="#6、避免重定向" class="headerlink" title="6、避免重定向"></a>6、避免重定向</h2><p>重定向是对网站访问者的一种极大的刺激。就类似你去一个朋友家，却发现你朋友早已经搬到三个街区远的地方了。重定向会消耗额外的时间，降低加载速度。</p>
+<h2 id="7、指定字符集"><a href="#7、指定字符集" class="headerlink" title="7、指定字符集"></a>7、指定字符集</h2><p>指定字符集是加速浏览器渲染页面的另一个有用的技巧。下面的代码就能轻松实现：</p>
+<h2 id="8、避免错误请求"><a href="#8、避免错误请求" class="headerlink" title="8、避免错误请求"></a>8、避免错误请求</h2><p>当用户在网站上搜索时，收到404或410错误是比较失望的。错误请求会对网站的页面加载速度产生不利影响。因此，建议你无论如何都要避免错误请求。Check My Link 能帮你找出404链接，清除它们，改善用户体验。</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
