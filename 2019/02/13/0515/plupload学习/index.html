@@ -90,7 +90,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官网"><span class="toc-text">官网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github地址"><span class="toc-text">github地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档说明"><span class="toc-text">文档说明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#官网"><span class="toc-text">官网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github地址"><span class="toc-text">github地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取本地图片路径"><span class="toc-text">获取本地图片路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档说明"><span class="toc-text">文档说明</span></a></li></ol>
 </div>
     
 </div>
@@ -140,6 +140,7 @@
     <div class="post-content ">
         <h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><p><a href="https://www.plupload.com" target="_blank" rel="noopener">plupload</a></p>
 <h2 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h2><p><a href="https://github.com/moxiecode/plupload" target="_blank" rel="noopener">https://github.com/moxiecode/plupload</a></p>
+<h2 id="获取本地图片路径"><a href="#获取本地图片路径" class="headerlink" title="获取本地图片路径"></a>获取本地图片路径</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">onBeforeUpload: <span class="function"><span class="keyword">function</span> (<span class="params">up, file</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//文件是一个一个上传，一个文件上传前执行此方法</span></span><br><span class="line">&#125;</span><br><span class="line">onUploadResponse: <span class="function"><span class="keyword">function</span> (<span class="params">response,info,up,file</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//获取参数</span></span><br><span class="line">  up.getOption(<span class="string">'multipart_params'</span>);</span><br><span class="line">  <span class="comment">//设置参数</span></span><br><span class="line">  up.setOption(<span class="string">'multipart_params'</span>,multipart_params);</span><br><span class="line">  <span class="comment">//获取文件本地地址</span></span><br><span class="line">  <span class="keyword">var</span> fileurl = URL.createObjectURL(file.getNative());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h2><center><br><img src="/post_img/20190515/plupload.png" width="90%"><br></center>
 
         
