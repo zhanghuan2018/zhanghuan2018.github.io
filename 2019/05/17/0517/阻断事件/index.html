@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JS-阻断事件传播 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-阻断事件传播-stopPropagation，preventDefault以及stopImmediatePropagation"><span class="toc-text">JS-阻断事件传播:stopPropagation，preventDefault以及stopImmediatePropagation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#stopPropagation"><span class="toc-text">stopPropagation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preventDefault"><span class="toc-text">preventDefault:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stopImmediatePropagation："><span class="toc-text">stopImmediatePropagation：</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        JS-阻断事件传播
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-05-17 15:11:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#js" title="js">js</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h2 id="JS-阻断事件传播-stopPropagation，preventDefault以及stopImmediatePropagation"><a href="#JS-阻断事件传播-stopPropagation，preventDefault以及stopImmediatePropagation" class="headerlink" title="JS-阻断事件传播:stopPropagation，preventDefault以及stopImmediatePropagation"></a>JS-阻断事件传播:stopPropagation，preventDefault以及stopImmediatePropagation</h2><p>最近遇到一个需求，在一定情况下，需要阻断blur的事件传播。搜索之后找到三个函数，第一个是preventDefault，第二个是stopPropagation，第三个是stopImmediatePropagation 。</p>
+<h3 id="stopPropagation"><a href="#stopPropagation" class="headerlink" title="stopPropagation"></a>stopPropagation</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopPropagation();</span><br></pre></td></tr></table></figure>
+<p>这个函数的作用是阻止事件进一步冒泡，进而被其他节点接收。</p>
+<h3 id="preventDefault"><a href="#preventDefault" class="headerlink" title="preventDefault:"></a>preventDefault:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault();</span><br></pre></td></tr></table></figure>
+<p>这个函数与前者不同在于他阻止的是事件默认的动作，但是并不会阻止事件的继续传播。例如<a>标签的click默认的动作是打开链接。但是使用这个函数之后会阻止这个动作。但同时这个事件可以传播给这个标签或者原远的click listener. 但是这个函数只支持cancelable的事件。可以通过event.cancelable来检查。同时在事件的任一阶段调用这个函数意味着默认的动作都不会执行。</a></p>
+<p>参考：<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault</a></p>
+<h3 id="stopImmediatePropagation："><a href="#stopImmediatePropagation：" class="headerlink" title="stopImmediatePropagation："></a>stopImmediatePropagation：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.stopImmediatePropagation();</span><br></pre></td></tr></table></figure>
+<p>这个函数用于阻断同一element的事件传播。 例如一个element上定义了多个listener，如果其中一个调用这个方法后面的listener则都不会执行。</p>
+<p>另外，还有return false，这种方式确实可以阻止事件默认行为的执行，例如form的submit，但是有的人提到这个办法还包含其他内容例如退出循环等等，所以显得不够灵活。</p>
+<p>最后，我的需求是监听window.blur的，所以，只能先于原有的监听器的前面先执行判断，条件满足则执行stopImmediatePropagation 来阻止它传递到页面的监听器。</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
