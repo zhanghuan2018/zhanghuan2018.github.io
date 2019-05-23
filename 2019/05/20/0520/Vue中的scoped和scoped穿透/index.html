@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="个人网站">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Vue中的scoped和scoped穿透 - zhanghuan2018的博客 | zhanghuan2018&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/js/viewer/viewer.min.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 坚持 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>zhanghuan2018</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是scoped"><span class="toc-text">什么是scoped</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scoped的实现原理"><span class="toc-text">scoped的实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scoped穿透"><span class="toc-text">scoped穿透</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在组件中修改第三方组件库样式的其它方法"><span class="toc-text">在组件中修改第三方组件库样式的其它方法</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 坚持 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        <div class="post-container">
+    <div class="post-title">
+        Vue中的scoped和scoped穿透
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">
+          发布于：<span>2019-05-20 10:11:30</span>
+        </span>
+
+        
+          <span class="attr">标签：/
+          
+            <a class="tag" href="/tags/#css" title="css">css</a>
+            <span>/</span>
+          
+            <a class="tag" href="/tags/#vue" title="vue">vue</a>
+            <span>/</span>
+          
+            <a class="tag" href="/tags/#scoped" title="scoped">scoped</a>
+            <span>/</span>
+          
+          </span>
+        
+        <span class="attr">
+          访问：<span id="busuanzi_value_page_pv"></span>
+        </span>
+    </div>
+    <div class="post-content ">
+        <h2 id="什么是scoped"><a href="#什么是scoped" class="headerlink" title="什么是scoped"></a>什么是scoped</h2><p>在Vue文件中的style标签上有一个特殊的属性，scoped。当一个style标签拥有scoped属性时候，它的css样式只能用于当前的Vue组件，可以使组件的样式不相互污染。如果一个项目的所有style标签都加上了scoped属性，相当于实现了样式的模块化。</p>
+<h2 id="scoped的实现原理"><a href="#scoped的实现原理" class="headerlink" title="scoped的实现原理"></a>scoped的实现原理</h2><p>Vue中的scoped属性的效果主要是通过PostCss实现的。以下是转译前的代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span> <span class="attr">lang</span>=<span class="string">"less"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">     .example&#123;</span></span><br><span class="line"><span class="undefined">         color:red;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example"</span>&gt;</span>scoped测试案例<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>转译后:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.example[data-v-5558831a] &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"example"</span> <span class="attr">data-v-5558831a</span>&gt;</span>scoped测试案例<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>既:PostCSS给一个组件中的所有dom添加了一个独一无二的动态属性，给css选择器额外添加一个对应的属性选择器，来选择组件中的dom,这种做法使得样式只作用于含有该属性的dom元素(组件内部的dom)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoped的渲染规则：</span><br><span class="line">1.给HTML的dom节点添加一个不重复的data属性(例如: data-v-5558831a)来唯一标识这个dom 元素</span><br><span class="line">2.在每句css选择器的末尾(编译后生成的css语句)加一个当前组件的data属性选择器(例如：[data-v-5558831a])来私有化样式</span><br></pre></td></tr></table></figure>
+<h2 id="scoped穿透"><a href="#scoped穿透" class="headerlink" title="scoped穿透"></a>scoped穿透</h2><p>scoped看起来很好用，当时在Vue项目中，当我们引入第三方组件库时(如使用vue-awesome-swiper实现移动端轮播)，需要在局部组件中修改第三方组件库的样式，而又不想去除scoped属性造成组件之间的样式覆盖。这时我们可以通过特殊的方式穿透scoped。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">stylus</span>的样式穿透 使用&gt;&gt;&gt;</span><br><span class="line">外层 &gt;&gt;&gt; 第三方组件</span><br><span class="line">     样式</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> &gt;&gt;&gt; <span class="selector-class">.swiper-pagination-bullet-active</span></span><br><span class="line"> <span class="selector-tag">background</span>: <span class="selector-id">#fff</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sass和less的样式穿透 使用/deep/</span><br><span class="line">外层 /deep/ 第三方组件 &#123;</span><br><span class="line">    样式</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.wrapper /deep/ .swiper-pagination-bullet-active&#123;</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="在组件中修改第三方组件库样式的其它方法"><a href="#在组件中修改第三方组件库样式的其它方法" class="headerlink" title="在组件中修改第三方组件库样式的其它方法"></a>在组件中修改第三方组件库样式的其它方法</h2><p>上面我们介绍了在使用scoped 属性时，通过scopd穿透的方式修改引入第三方组件库样式的方法，下面我们介绍其它方式来修改引入第三方组件库的样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.在vue组件中不使用scoped属性</span><br><span class="line">2.在vue组建中使用两个style标签，一个加上scoped属性，一个不加scoped属性，把需要覆盖的css样式写在不加scoped属性的style标签里</span><br><span class="line">3.建立一个reset.css(基础全局样式)文件，里面写覆盖的css样式，在入口文件main.js 中引入</span><br></pre></td></tr></table></figure></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/zhanghuan2018">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://zhanghuan2018.github.io/">zhanghuan2018</a></span>
+        <span>/</span>
+        
+        <span><a href="/html">html-demo</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        © 2018 | Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/viewer/viewer.min.js"></script>
+<script src="/js/layer/layer.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
