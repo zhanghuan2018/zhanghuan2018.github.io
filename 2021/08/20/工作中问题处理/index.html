@@ -90,7 +90,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作错误查询"><span class="toc-text">工作错误查询</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工作错误查询"><span class="toc-text">工作错误查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php控制器跳转，要加上exit"><span class="toc-text">php控制器跳转，要加上exit()</span></a></li></ol>
 </div>
     
 </div>
@@ -139,6 +139,7 @@
     </div>
     <div class="post-content ">
         <h2 id="工作错误查询"><a href="#工作错误查询" class="headerlink" title="工作错误查询"></a>工作错误查询</h2><p>报500错误的时候，直接查看Web服务器日志</p>
+<h2 id="php控制器跳转，要加上exit"><a href="#php控制器跳转，要加上exit" class="headerlink" title="php控制器跳转，要加上exit()"></a>php控制器跳转，要加上exit()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Location:http://www.example.com/&apos;);</span><br><span class="line">exit();</span><br></pre></td></tr></table></figure>
 
         
         <br>
